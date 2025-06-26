@@ -17,24 +17,13 @@ variables:
 
 steps:
 
-  build-unimus-debian-dev:
+  build-glpi-debian:
     image: *buildx_plugin
     settings:
       repo: *publish_repos
       dockerfile: Dockerfile
       platforms: *platforms_debian
-      tag: latest-debian-dev
+      tag: latest
       logins: *publish_logins
     when:
       - event: [pull_request, push]
-
-  build-unimus-debian:
-    image: *buildx_plugin
-    settings:
-      repo: *publish_repos
-      dockerfile: Dockerfile
-      platforms: *platforms_debian
-      tag: [latest-debian, '${CI_COMMIT_TAG}-debian-linux']
-      logins: *publish_logins
-    when:
-      - event: tag
