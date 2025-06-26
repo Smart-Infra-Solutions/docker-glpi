@@ -1,9 +1,6 @@
 #On choisit une debian
 FROM debian:12.5
 
-LABEL org.opencontainers.image.authors="github@diouxx.be"
-
-
 #Ne pas poser de question à l'installation
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -37,6 +34,7 @@ libldap-common \
 libsasl2-2 \
 libsasl2-modules \
 libsasl2-modules-db \
+sendmail \
 && rm -rf /var/lib/apt/lists/*
 
 #Copie et execution du script pour l'installation et l'initialisation de GLPI
