@@ -34,7 +34,10 @@ libldap-common \
 libsasl2-2 \
 libsasl2-modules \
 libsasl2-modules-db \
-sendmail \
+&& rm -rf /var/lib/apt/lists/*
+
+RUN apt update \
+&& apt install --yes sendmail \
 && rm -rf /var/lib/apt/lists/*
 
 #Copie et execution du script pour l'installation et l'initialisation de GLPI
